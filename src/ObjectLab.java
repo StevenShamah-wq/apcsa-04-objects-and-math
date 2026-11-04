@@ -4,6 +4,24 @@ public class ObjectLab {
         // 2. Alias: Pet copy = rex; copy.birthday(); print both ages.
         // 3. A separate Pet twin with the same values. Print its age.
         // 4. copy = null; then try copy.getName().
+        
+    Pet rex = new Pet("Rex", 3);
+    Pet mia = new Pet("Mia");
+    Pet twin = new Pet("Rex, 3");
+    System.out.println(rex.getName() + " is " + rex.getAge() + " years old");
+    System.out.println(mia.getName() + " is " + mia.getAge() + " years old");
+
+    Pet copyRex = rex;
+    copyRex.birthday();
+
+    System.out.println(rex.getName() + " is " + rex.getAge() + " years old");
+    System.out.println("Alias Rex" + " is " + copyRex.getAge() + " years old");
+    System.out.println(twin.getName() + " is " + twin.getAge() + " years old");
+
+    Pet testPet = new Pet("", 0);
+
+    System.out.println(testPet.getName() + " is " + testPet.getAge() + " years old");
+
     }
 }
 
