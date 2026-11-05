@@ -19,7 +19,11 @@ System.out.println(a.getAge() + " " + b.getAge());
 ```
 Picture:
 
-Output:
+a--------> Pet {Name: Rex and age 3};
+b--------> Pet {Name: Rex and age 3};
+Object a increases in age by 1
+
+Ouptut: 4 3
 
 ## Snippet 2
 ```java
@@ -30,7 +34,11 @@ System.out.println(b.getAge());
 ```
 Picture:
 
-Output:
+a -------> Pet {Name: Rex and age 3};
+b -------> a
+Object a and b inrease by 1, because object b is a refrence variable for a
+
+Output: 4
 
 ## Snippet 3
 ```java
@@ -42,7 +50,12 @@ System.out.println(a.getAge() + " " + b.getName());
 ```
 Picture:
 
-Output:
+a ------> Pet {Name: Mia and age 1};
+b ------> Pet {Name: Zed and age 9};
+b ------> a {Mia, age 1};
+
+Object b increases by 1
+Output: 2 Mia
 
 ## Snippet 4
 ```java
@@ -53,7 +66,11 @@ System.out.println(s + " " + t);
 ```
 Picture:
 
-Output:
+s ------> Java
+t ------> s (also Java)
+s + ! -----> Java!
+
+Output: Java! Java 
 
 ## Snippet 5
 ```java
@@ -64,7 +81,11 @@ System.out.println(x + " " + y);
 ```
 Picture:
 
-Output:
+x -----> 5
+y -----> x (also 5)
+y++ ------> y+1= 6
+
+Output: 5 6
 
 ## Snippet 6
 ```java
@@ -75,7 +96,11 @@ System.out.println(b.getName());
 ```
 Picture:
 
-Output:
+a ----> Pet {Name: Rex and age 3};
+b ----> a (Rex. age 3);
+a ----> Turns to nothing
+
+Output: Rex
 
 ## Snippet 7 (this one crashes)
 ```java
@@ -85,19 +110,26 @@ a = null;
 b = null;
 System.out.println(a.getName());
 ```
-- Exception name:
-- Line that crashes:
-- Which variable is null?
-- Your fix (one line of code):
+- Exception name: NullPointerException
+- Line that crashes: Last line
+- Which variable is null? Both but since only a is printed it is the one cause in the error
+- Your fix (one line of code): remove line 3 (a = null)
 
 ## Snippet 8: write your own
 Write a snippet where two variables alias one `Pet`, then explain its output in two sentences.
 
 ```java
-// your snippet here
+Pet a = new Pet("James", 8);
+Pet b = a;
+Pet c = a;
+b.birthday()
+System.out.println(a.getName() + " " + b.getName() + " " c.getName());
+System.out.println(a.getAge() + " " + b.getAge() + " " + c.getAge());
+
 ```
 
-Explanation:
+Explanation: 
+Here we have the original variable a that creates a new Pet object, James, age 8. Then we use another variable, b to alias (create a refernce) and we do the same with variable c.
 
 ## Checked my predictions
 Which snippets did I get wrong, and what was I assuming?
